@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Kishan Kumar.
-- 💞️ I’m currently prsuing my B.Tech(CSE) from Moradabad Institute Of Technology.
+- 💞️ I’m currently pursuing my B.Tech(CSE) from Moradabad Institute Of Technology.
 - 👀 I am good at coding languages like C++ and python as well as knowing Data Science. In addition, I have an interest to learn new things, to work hard for my personal and organizational growth. Also, I would like to implement my technical skills and creativity. My greatest strength is my dedication to my job. My objective is that I will achieve my target within the stipulated time without compromising on personal values.
 - 🌱 I’m currently looking for opportunities which can help me improve professionally.
 
