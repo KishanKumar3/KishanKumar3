@@ -1,7 +1,11 @@
 - 👋 Hi, I’m Kishan Kumar.
-- 💞️ I’m currently pursuing my B.Tech(CSE) from Moradabad Institute Of Technology.
-- 👀 I am good at coding languages like C++ and python as well as knowing Data Science. In addition, I have an interest to learn new things, to work hard for my personal and organizational growth. Also, I would like to implement my technical skills and creativity. My greatest strength is my dedication to my job. My objective is that I will achieve my target within the stipulated time without compromising on personal values.
-- 🌱 I’m currently looking for opportunities which can help me improve professionally.
+- 💞️ I'm currently serving as an Associate Software Engineer Trainee at Nagarro, where I'm actively honing my skills and expertise in the field. I hold a B.Tech degree in Computer Science and Engineering from Moradabad Institute Of Technology.
+- 🚀 Proficient in coding languages such as C++, C#, Python, and adept in the realm of Data Science.
+- 🌟 Passionate about continuous learning, I am eager to expand my knowledge and contribute to both personal and organizational growth.
+- 💡 Equipped with technical skills in Angular, ASP.NET, ASP.NET Web API, .NET Core, .NET Framework, MVC, and Microsoft SQL Server.
+- 🎨 I'm enthusiastic about creatively applying these skills to develop innovative solutions.
+- ⚙️ My dedication to my work stands as my greatest strength, driving me to achieve objectives within set timelines while upholding core values.
+- 🎯 Actively seeking opportunities that foster professional development and provide a platform for further growth.
 
 - 📫 Here's my LinkedIn Profile : https://www.linkedin.com/in/kishan-kumar-20784a172/
 - 📫 Here's my Resume link : https://drive.google.com/file/d/1fKCIFIVtu0-BtWV3znifOUTzQEEfIKAV/view?usp=share_link
