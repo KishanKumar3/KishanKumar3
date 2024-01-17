@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Kishan Kumar.
-- 💞️ I'm currently serving as an Associate Software Engineer Trainee at Nagarro, where I'm actively honing my skills and expertise in the field. I hold a B.Tech degree in Computer Science and Engineering from Moradabad Institute Of Technology.
+- 💞️ I'm currently serving as an Associate Software Engineer at Nagarro, where I'm actively honing my skills and expertise in the field. I hold a B.Tech degree in Computer Science and Engineering from Moradabad Institute Of Technology.
 - 🚀 Proficient in coding languages such as C++, C#, Python, and adept in the realm of Data Science.
 - 🌟 Passionate about continuous learning, I am eager to expand my knowledge and contribute to both personal and organizational growth.
 - 💡 Equipped with technical skills in Angular, ASP.NET, ASP.NET Web API, .NET Core, .NET Framework, MVC, and Microsoft SQL Server.
