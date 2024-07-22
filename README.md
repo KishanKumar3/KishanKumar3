@@ -24,7 +24,7 @@ I'm always looking for opportunity to improve the project I'm working on. I look
 
 <p align="center">
   <a href="https://kishan-kumar.vercel.app/"><img alt="Static Badge" src="https://img.shields.io/badge/Portfolio-Green">
-  <a href="https://drive.google.com/file/d/1khcg6xxonEDlH_JeollOFOXOhfVtZYm4/view?usp=sharing"><img alt="Static Badge" src="https://img.shields.io/badge/Resume-blue">
+  <a href="https://drive.google.com/file/d/1WoAzwAkx2pjkqnSgCn2yf-BaE2u3wxmk/view?usp=sharing"><img alt="Static Badge" src="https://img.shields.io/badge/Resume-blue">
   </a>
 </p>
 
