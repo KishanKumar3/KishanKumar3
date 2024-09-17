@@ -23,10 +23,10 @@ An ambitious guy who loves to print money 💸, analyse stocks and sometime code
 I'm always looking for opportunity to improve the project I'm working on. I look forward to absorb knowledge🧠,gain experience👨‍🏭, collaborate🤝 and build amazing products 🏭for the world🌍!
 
 <p align="center">
-  <a href="https://kishan-kumar.vercel.app/" target="_blank" rel="noopener noreferrer">
+  <a href="https://kishan-kumar.vercel.app/">
     <img alt="Static Badge" src="https://img.shields.io/badge/Portfolio-Green">
   </a>
-  <a href="https://drive.google.com/file/d/1WoAzwAkx2pjkqnSgCn2yf-BaE2u3wxmk/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+  <a href="https://drive.google.com/file/d/1WoAzwAkx2pjkqnSgCn2yf-BaE2u3wxmk/view?usp=sharing">
     <img alt="Static Badge" src="https://img.shields.io/badge/Resume-blue">
   </a>
 </p>
