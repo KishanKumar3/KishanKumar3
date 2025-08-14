@@ -37,7 +37,7 @@ I'm always looking for opportunity to improve the project I'm working on. I look
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
-<a href="https://linkedin.com/in/kishan-kumar-20784a172" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="kishan-kumar-20784a172" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/kishan-kumar3" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="kishan-kumar3" height="30" width="40" /></a>
 <a href="https://kaggle.com/kishankumar3" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="kishankumar3" height="30" width="40" /></a>
 <a href="https://instagram.com/3kishan3" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="3kishan3" height="30" width="40" /></a>
 <a href="https://www.leetcode.com/kishankumar3" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="kishankumar3" height="30" width="40" /></a>
