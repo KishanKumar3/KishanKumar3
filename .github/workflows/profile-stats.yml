@@ -28,8 +28,21 @@ jobs:
       contents: write
 
     steps:
-      - name: Create output directory
-        run: mkdir -p dist
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create output directory and restore cached SVGs
+        run: |
+          mkdir -p dist
+          # Pre-fetch existing SVGs from the output branch as a baseline so temporary network glitches never break the profile
+          for file in stats.svg top-langs.svg trophies.svg activity-graph.svg streak.svg github-snake.svg github-snake-dark.svg; do
+            curl -s -L -A "Mozilla/5.0" "https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/$file" -o "dist/$file" || true
+            # Purge any legacy placeholder files so they don't linger
+            if [ -f "dist/$file" ] && grep -qi "temporarily unavailable" "dist/$file"; then
+              echo "🧹 Removing legacy placeholder for $file"
+              rm -f "dist/$file"
+            fi
+          done
 
       # ============================
       # 🐍 SNAKE ANIMATION
@@ -78,20 +91,26 @@ jobs:
           for URL in "$STATS_URL" "$FALLBACK_1" "$FALLBACK_2"; do
             for i in 1 2 3; do
               echo "⏳ Attempt $i — Fetching stats from: ${URL:0:60}..."
-              curl -s -L --max-time 30 "$URL" -o dist/stats.svg
-              if [ -f dist/stats.svg ] && grep -q "<svg" dist/stats.svg; then
+              curl -s -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" --max-time 30 "$URL" -o dist/stats_tmp.svg || true
+              if [ -f dist/stats_tmp.svg ] && grep -q "<svg" dist/stats_tmp.svg && ! grep -qi "error" dist/stats_tmp.svg && ! grep -qi "temporarily unavailable" dist/stats_tmp.svg; then
                 echo "✅ Stats SVG downloaded successfully!"
+                mv dist/stats_tmp.svg dist/stats.svg
                 SUCCESS=true
                 break 2
               fi
-              echo "⚠️ Attempt $i failed, waiting 30s..."
-              sleep 30
+              rm -f dist/stats_tmp.svg
+              echo "⚠️ Attempt $i failed, waiting 10s..."
+              sleep 10
             done
           done
 
           if [ "$SUCCESS" = false ]; then
-            echo "❌ All stats endpoints failed — creating placeholder"
-            echo '<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195"><rect width="495" height="195" fill="#0D1117" rx="4.5"/><text x="248" y="105" fill="#6C5CE7" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16">Stats temporarily unavailable</text></svg>' > dist/stats.svg
+            if [ -f dist/stats.svg ] && grep -q "<svg" dist/stats.svg; then
+              echo "⚠️ Using previously cached stats.svg"
+            else
+              echo "❌ All stats endpoints failed — creating placeholder"
+              echo '<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195"><rect width="495" height="195" fill="#0D1117" rx="4.5"/><text x="248" y="105" fill="#6C5CE7" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16">Stats</text></svg>' > dist/stats.svg
+            fi
           fi
 
       # ============================
@@ -109,20 +128,26 @@ jobs:
           for URL in "$LANGS_URL" "$FALLBACK_1" "$FALLBACK_2"; do
             for i in 1 2 3; do
               echo "⏳ Attempt $i — Fetching top languages from: ${URL:0:60}..."
-              curl -s -L --max-time 30 "$URL" -o dist/top-langs.svg
-              if [ -f dist/top-langs.svg ] && grep -q "<svg" dist/top-langs.svg; then
+              curl -s -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" --max-time 30 "$URL" -o dist/top-langs_tmp.svg || true
+              if [ -f dist/top-langs_tmp.svg ] && grep -q "<svg" dist/top-langs_tmp.svg && ! grep -qi "error" dist/top-langs_tmp.svg && ! grep -qi "temporarily unavailable" dist/top-langs_tmp.svg; then
                 echo "✅ Top Languages SVG downloaded successfully!"
+                mv dist/top-langs_tmp.svg dist/top-langs.svg
                 SUCCESS=true
                 break 2
               fi
-              echo "⚠️ Attempt $i failed, waiting 30s..."
-              sleep 30
+              rm -f dist/top-langs_tmp.svg
+              echo "⚠️ Attempt $i failed, waiting 10s..."
+              sleep 10
             done
           done
 
           if [ "$SUCCESS" = false ]; then
-            echo "❌ All languages endpoints failed — creating placeholder"
-            echo '<svg xmlns="http://www.w3.org/2000/svg" width="350" height="195"><rect width="350" height="195" fill="#0D1117" rx="4.5"/><text x="175" y="105" fill="#6C5CE7" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16">Languages temporarily unavailable</text></svg>' > dist/top-langs.svg
+            if [ -f dist/top-langs.svg ] && grep -q "<svg" dist/top-langs.svg; then
+              echo "⚠️ Using previously cached top-langs.svg"
+            else
+              echo "❌ All languages endpoints failed — creating placeholder"
+              echo '<svg xmlns="http://www.w3.org/2000/svg" width="350" height="195"><rect width="350" height="195" fill="#0D1117" rx="4.5"/><text x="175" y="105" fill="#6C5CE7" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16">Languages</text></svg>' > dist/top-langs.svg
+            fi
           fi
 
       # ============================
@@ -132,57 +157,62 @@ jobs:
         run: |
           PARAMS="username=KishanKumar3&theme=discord&no-frame=true&no-bg=true&column=7&margin-w=15"
 
-          # Official volunteer load-balanced endpoints
+          # Active endpoints (including community mirrors)
           ENDPOINTS=(
-            "https://github-profile-trophy-liard-delta.vercel.app"
-            "https://github-profile-trophy-fork-two.vercel.app"
-            "https://github-profile-trophy-winning.vercel.app"
-            "https://github-profile-trophy-kannan.vercel.app"
-            "https://trophy.benkou.dev"
+            "https://gh-trophy.cdnsoft.net"
+            "https://trophy.ryglcloud.net"
+            "https://trophygh.kolioaris.xyz"
             "https://github-profile-trophy.vercel.app"
+            "https://github-profile-trophy-liard-delta.vercel.app"
+            "https://github-profile-trophy-winning.vercel.app"
+            "https://trophy.benkou.dev"
           )
 
           SUCCESS=false
 
           for ENDPOINT in "${ENDPOINTS[@]}"; do
             echo "⏳ Trying trophies from: $ENDPOINT ..."
-            curl -s -L --max-time 30 "${ENDPOINT}/?${PARAMS}" -o dist/trophies.svg
-            if [ -f dist/trophies.svg ] && grep -q "<svg" dist/trophies.svg; then
+            curl -s -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" --max-time 20 "${ENDPOINT}/?${PARAMS}" -o dist/trophies_tmp.svg || true
+            if [ -f dist/trophies_tmp.svg ] && grep -q "<svg" dist/trophies_tmp.svg && ! grep -qi "error" dist/trophies_tmp.svg && ! grep -qi "temporarily unavailable" dist/trophies_tmp.svg; then
               echo "✅ Trophies SVG downloaded from $ENDPOINT"
+              mv dist/trophies_tmp.svg dist/trophies.svg
               SUCCESS=true
               break
             fi
+            rm -f dist/trophies_tmp.svg
             echo "⚠️ Failed, trying next endpoint..."
           done
 
           if [ "$SUCCESS" = false ]; then
-            echo "❌ All trophy endpoints failed — creating placeholder"
-            echo '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="130"><rect width="800" height="130" fill="transparent" rx="4.5"/><text x="400" y="72" fill="#6C5CE7" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16">🏆 Trophies temporarily unavailable</text></svg>' > dist/trophies.svg
+            if [ -f dist/trophies.svg ] && grep -q "<svg" dist/trophies.svg; then
+              echo "⚠️ Using previously cached trophies.svg"
+            else
+              echo "❌ All trophy endpoints failed — creating placeholder"
+              echo '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="130"><rect width="800" height="130" fill="transparent" rx="4.5"/><text x="400" y="72" fill="#6C5CE7" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16">🏆 Trophies</text></svg>' > dist/trophies.svg
+            fi
           fi
 
       # ============================
-      # 📈 ACTIVITY GRAPH
+      # 📈 ACTIVITY GRAPH (Local Action — Zero Server Dependencies)
       # ============================
       - name: Generate Activity Graph
+        uses: maurodesouza/github-readme-activity-graph-action@v1
+        continue-on-error: true
+        with:
+          username: KishanKumar3
+          options: bg_color=0D1117&color=6C5CE7&line=FFD700&point=FFFFFF&area=true&hide_border=true
+          output_path: dist/activity-graph.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify Activity Graph
         run: |
-          GRAPH_URL="https://github-readme-activity-graph.vercel.app/graph?username=KishanKumar3&bg_color=0D1117&color=6C5CE7&line=FFD700&point=FFFFFF&area=true&hide_border=true"
-
-          SUCCESS=false
-          for i in 1 2 3; do
-            echo "⏳ Attempt $i — Fetching activity graph..."
-            curl -s -L --max-time 30 "$GRAPH_URL" -o dist/activity-graph.svg
-            if [ -f dist/activity-graph.svg ] && grep -q "<svg" dist/activity-graph.svg; then
-              echo "✅ Activity Graph SVG downloaded successfully!"
-              SUCCESS=true
-              break
-            fi
-            echo "⚠️ Attempt $i failed, waiting 20s..."
-            sleep 20
-          done
-
-          if [ "$SUCCESS" = false ]; then
-            echo "❌ Activity graph failed — creating placeholder"
-            echo '<svg xmlns="http://www.w3.org/2000/svg" width="850" height="300"><rect width="850" height="300" fill="#0D1117" rx="4.5"/><text x="425" y="155" fill="#6C5CE7" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16">Activity Graph temporarily unavailable</text></svg>' > dist/activity-graph.svg
+          if [ -f dist/activity-graph.svg ] && grep -q "<svg" dist/activity-graph.svg && ! grep -qi "temporarily unavailable" dist/activity-graph.svg; then
+            echo "✅ Activity Graph SVG verified successfully!"
+          elif [ -f dist/activity-graph.svg ] && grep -q "<svg" dist/activity-graph.svg; then
+            echo "⚠️ Using previously cached activity-graph.svg"
+          else
+            echo "❌ Generating fallback activity-graph.svg"
+            echo '<svg xmlns="http://www.w3.org/2000/svg" width="850" height="300"><rect width="850" height="300" fill="#0D1117" rx="4.5"/><text x="425" y="155" fill="#6C5CE7" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16">Activity Graph</text></svg>' > dist/activity-graph.svg
           fi
 
       # ============================
@@ -216,4 +246,3 @@ jobs:
           commit_message: "chore: update all profile stats"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

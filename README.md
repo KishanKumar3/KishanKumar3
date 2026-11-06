@@ -145,18 +145,18 @@ I write in-depth technical articles and architectural breakdowns on my blog [**C
 
 <!-- Streak Stats -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/streak.svg" alt="GitHub Streak" onerror="this.src='https://streak-stats.demolab.com?user=kishankumar3&theme=tokyonight&hide_border=true&background=0D1117&ring=6C5CE7&fire=FFD700&currStreakLabel=FFD700'" />
+  <img src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/streak.svg" alt="GitHub Streak" />
 </p>
 
 <!-- GitHub Stats + Top Languages side by side -->
 <p align="center">
-  <img width="49%" src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/stats.svg" alt="GitHub Stats" onerror="this.src='https://github-readme-stats.vercel.app/api?username=kishankumar3&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6C5CE7&icon_color=FFD700&text_color=FFFFFF'" />
-  <img width="49%" src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/top-langs.svg" alt="Top Languages" onerror="this.src='https://github-readme-stats.vercel.app/api/top-langs/?username=kishankumar3&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6C5CE7&text_color=FFFFFF'" />
+  <img width="49%" src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/stats.svg" alt="GitHub Stats" />
+  <img width="49%" src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/top-langs.svg" alt="Top Languages" />
 </p>
 
 <!-- Activity Graph -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/activity-graph.svg" alt="Activity Graph" onerror="this.src='https://github-readme-activity-graph.vercel.app/graph?username=kishankumar3&bg_color=0D1117&color=6C5CE7&line=FFD700&point=FFFFFF&area=true&hide_border=true'" />
+  <img src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/activity-graph.svg" alt="Activity Graph" />
 </p>
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="divider" width="100%">
@@ -164,7 +164,7 @@ I write in-depth technical articles and architectural breakdowns on my blog [**C
 ## 🏆 GitHub Trophies
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/trophies.svg" alt="Trophies" onerror="this.src='https://github-profile-trophy.vercel.app/?username=kishankumar3&theme=discord&no-frame=true&no-bg=true&column=7&margin-w=15'" />
+  <img src="https://raw.githubusercontent.com/KishanKumar3/KishanKumar3/output/trophies.svg" alt="Trophies" />
 </p>
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="divider" width="100%">
